@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Registration WebPage</title>
+</head>
+<body>
+    <h1>Welcome to <em>My Registration</em> page </h1>
+    <div class="container">
+        <form method="post">
+            {{ form_key1.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Sumbit Here">
+        </form>
+
+    </div>
+
+</body>
+</html>

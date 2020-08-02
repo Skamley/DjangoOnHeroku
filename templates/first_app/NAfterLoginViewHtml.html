@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "first_app/Nbase.html" %}
+{% block body_block %}
+
+        <div class="container w-90 p-3" >
+            {% for index in all_posts %}
+                <div class="container w-75 p-3 ">
+                    <article style="background-color: #cecee5;">
+                        <b>{{ index.post_title }} &nbsp <em>Topic: {{ index.myTopic}}</em></b>
+                        <br>
+                        <div class="container">
+                            {{ index.myPost }}
+                        </div>
+                        <br>
+                        <p>Created at {{ index.created_at }}</p>
+                    </article>
+                </div>
+
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+{% endblock %}

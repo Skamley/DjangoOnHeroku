@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "first_app/NBase.html" %}
+{% block body_block %}
+    <div class=" container ">
+        <div class="jumbotron">
+            <div class="justify-content-sm-start d-flex flex-column ">
+                {% if registered %}
+                <h3> Thank you for registering</h3>
+                {% else %}
+                    <h3>This is new user registration page</h3>
+                    <h4> Register Here - </h4> <br>
+                    <form enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        {{ user_form.as_p }}
+                        {{ profile_form.as_p }}
+                        <input type="submit" value="Register Here" class="btn btn-primary">
+
+                    </form>
+                {% endif %}
+            </div></div></div>
+
+{% endblock %}

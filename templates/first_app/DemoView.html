@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Rock the world</title>
+</head>
+<body>
+<h1>Lets rock the world</h1>
+<h4>Here we go</h4>
+{% if WebPage_Records %}
+    <p>
+        here we are showing the record
+    </p>
+<table>
+    <thead>
+    <th>
+        topic
+    </th>
+    <th>Page name</th>
+    </thead>
+    {% for index in WebPage_Records %}
+        <tr>
+            <td>{{ index.topic }}</td>
+            <td>{{ index.name }}</td>
+            <td>{{ index.url }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endif %}
+
+</body>
+</html>

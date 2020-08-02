@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PageOne_Landing</title>
+</head>
+<body>
+    <h1>Welcome to Page 1</h1>
+    <h2>Click the below links to navigate to other pages</h2>
+    <p>
+        <a href="{% url 'first_app:PageTwo' %}">Go to Page two</a>
+    </p>
+    <p>
+        <a href=" {% url 'admin:index'%}">Go to Admin page</a>
+    </p>
+    <p>
+        <a href=" {% url 'first_app:EmployeeLogin'%}">Go to Employee Registration Page</a>
+    </p>
+    {% for topic in posts %}
+    <p>
+        {{ topic.top_name}}
+    </p>
+
+    {% endfor %}
+
+</body>
+</html>
