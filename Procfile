@@ -1,1 +1,2 @@
-web:python manage.py runserver
+web: gunicorn My_First_App.wsgi
+
