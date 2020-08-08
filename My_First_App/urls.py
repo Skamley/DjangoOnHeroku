@@ -28,8 +28,9 @@ urlpatterns = [
     url(r'^$', views.AppHomePage),
     #url(r'^$', views.index),
     url(r'^first_app/', include('first_app.urls')),
+    #url(r'^$/', include('first_app.urls')),
     path('admin/', admin.site.urls),
-    url(r'^Rock/', views.rockUs, name="RockView"),
+    url(r'^.*Rock/$', views.rockUs, name="RockView"),
     url(r'^DemoView/', views.DemoView),
     url(r'^MyRegistration/', views.MyRegView, name="MyRegView"),
     #Following two lines are for rest framework
