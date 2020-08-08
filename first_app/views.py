@@ -214,7 +214,7 @@ def user_login(request):
             print("Username: {} and Password:{}".format(username_entry, password_entry))
             print("Invalid credentials supplied")
     else:
-        return render(request, 'first_app/Nlogin.html', {})
+        return render(request, 'first_app/NLogin.html', {})
 
 @login_required
 def user_logout(request):
