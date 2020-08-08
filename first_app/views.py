@@ -183,9 +183,9 @@ def AppHomePage(request):
     topics = Topic.objects.all()
     posts = Post.objects.all()
     users = User.objects.all()
-    Context_Dir= {"Line1": "This site is undergoing development. Thanks for being patient.",
-                  "Line2": "This is a short note",
-                  }
+    # Context_Dir= {"Line1": "This site is undergoing development. Thanks for being patient.",
+    #               "Line2": "This is a short note",
+    #               }
     #return render(request,'first_app/LogoutView.html',Context_Dir)
     return render(request, 'first_app/NAfterLoginViewHtml.html', {'all_topics': topics,
                                                                   'all_posts': posts,
