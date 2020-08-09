@@ -10,7 +10,7 @@
     <div class="container">
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-                <li><a class="navbar-brand" href="#">MySite</a></li>
+                <li><a class="navbar-brand" href="#">TST</a></li>
                 <li><a class="navbar-brand" href="{% url 'admin:index'%}">Admin</a></li>
                 <li><a class="navbar-brand" href="{% url 'first_app:Contacts'%}">About & Contacts</a></li>
                 <li><a class="navbar-brand" href="{% url 'first_app:Posting'%}">Write a Post</a></li>
@@ -18,7 +18,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-                <li><a class="navbar-brand" href="{% url 'first_app:AppHomePage' %}">Our Life Blues</a></li>
+                <li><a class="navbar-brand" href="{% url 'first_app:AppHomePage' %}">The Storytellers</a></li>
                 </ul>
 
         </div>
@@ -42,9 +42,13 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <br><br><br>
+                        <li class=" p-2 mb-1 bg-info text-white">
+                            <div class="text-center">List of Topics</div>
+                            <!-- <a class=" nav-link flex-column " href="#">Topic List </a> -->
+                        </li>
                         {% for index in all_topics %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ index.top_name}} </a>
+                            <a class="nav-link text-center" href="#">{{ index.top_name}} </a>
                         </li>
                         {% endfor %}
                     </ul>

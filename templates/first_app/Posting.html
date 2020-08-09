@@ -2,10 +2,11 @@
 {% extends "NBase.html" %}
 {% block body_block %}
     <div class="container">
-        <h3><em>Make New Post</em></h3>
-        <div class="jumbotron">
+        <h4 class="text-info"><em>What would you like to post today?</em></h4>
+        <br>
+        <div class="container">
             <form method="post">
-                {{ form.as_p }}
+                {{ form.as_myp  }}
                 {% csrf_token %}
                 <input type="submit" value="Submit Here">
             </form>

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 {% extends "NBase.html" %}
 {% block body_block %}
-<h1>Welcome to the Website.</h1>
-<h4> {{ Line1|upper }}</h4>
-<p>{{ Line2|cut:'short'}}</p>
-<p><b>Please Login again to read the posts</b></p>
+<div class="text-center">
+    <h3>Welcome to the Website.</h3>
+    <h4> {{ Line1|upper }}</h4>
+    <p>{{ Line2|cut:'short'}}</p>
+    <p><b>Please<a href="{% url 'first_app:user_login' %}">&nbsp Login &nbsp</a>again to create/view the posts</b></p>
+</div>
+
 {% endblock %}

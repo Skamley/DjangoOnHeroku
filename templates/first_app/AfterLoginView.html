@@ -1,3 +1,6 @@
+<!-- This is After Login View
+And also the Home Page View. If User is not Logged in user would still view this page as Home Page
+-->
 <!DOCTYPE html>
 {% extends "NBase.html" %}
 {% block body_block %}
@@ -6,7 +9,7 @@
             {% for index in all_posts %}
                 <div class="container w-75 p-3 ">
                     <article style="background-color: #cecee5;">
-                        <b>{{ index.post_title }} &nbsp <em>Topic: {{ index.myTopic}}</em></b>
+                        <b class="bg-info">{{ index.post_title }} &nbsp <em>Topic: {{ index.myTopic}}</em></b>
                         <br>
                         <div class="container">
                             {{ index.myPost }}

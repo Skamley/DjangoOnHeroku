@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 {% extends "NBase.html" %}
 {% block body_block %}
-    <div class=" container ">
+    <div class=" container">
         <div class="jumbotron">
             <div class="justify-content-sm-start d-flex flex-column ">
                 {% if registered %}
-                <h3> Thank you for registering</h3>
+                <div class="text-center bg-light text-dark">
+                    <h3> Thank you for registering</h3>
+                    <h4> Please click<a href="{% url 'first_app:AppHomePage' %}">&nbsp here &nbsp</a>to see the posts</h4>
+
+                </div>
                 {% else %}
-                    <h3>This is new user registration page</h3>
-                    <h4> Register Here - </h4> <br>
+                    <h3>New user registration page</h3>
+                <br>
+                    <!--<h4> Register Here - </h4> <br> -->
                     <form enctype="multipart/form-data" method="post">
                         {% csrf_token %}
                         {{ user_form.as_p }}

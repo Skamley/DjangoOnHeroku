@@ -3,7 +3,7 @@ from first_app.models import  Topic, WebPage,Access_Record,Employee, UserProfile
 
 class PostInline(admin.StackedInline):
     model = Post
-    extra = 4
+    extra = 2
 
 class TopicAdmin(admin.ModelAdmin):
     fieldsets = [

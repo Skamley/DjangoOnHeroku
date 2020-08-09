@@ -2,6 +2,22 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+class Topic(models.Model):
+
+    top_name = models.CharField(max_length=264, unique=True)
+    top_desc = models.TextField(max_length=300, default='Description not available')
+
+    def __str__(self):
+        return self.top_name
+
+class Post(models.Model):
+    myTopic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    myPost = models.TextField(max_length=1000)
+    post_title = models.CharField(max_length=100, default='Title Not Available' )
+    created_at = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return str(self.post_title) + str(self.created_at)
+
 class UserProfileInfo(models.Model):
     """
         Django provides default model User which has fields like Username,Password, Email
@@ -25,21 +41,13 @@ class UserProfileInfo(models.Model):
         return self.user.username
 
 
-
-class Topic(models.Model):
-
-    top_name = models.CharField(max_length=264, unique=True)
-    top_desc = models.TextField(max_length=300, default='Description not available')
-
-    def __str__(self):
-        return self.top_name
+#Below models are out of scope of this project
 
 class WebPage(models.Model):
 
     topic= models.ForeignKey(Topic,on_delete=models.CASCADE)
     name = models.CharField(max_length=264,unique=True)
     url= models.URLField(unique=True)
-
     def __str__(self):
         return  self.name
 '''
@@ -63,10 +71,4 @@ class Employee(models.Model):
     Organisation = models.CharField(max_length=100)
     Email = models.CharField(max_length=100, unique=True)
 
-class Post(models.Model):
-    myTopic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    myPost = models.TextField(max_length=1000)
-    post_title = models.CharField(max_length=100, default='Title Not Available')
-    created_at = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return str(self.post_title) + str(self.created_at)
+

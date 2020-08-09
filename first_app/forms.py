@@ -3,7 +3,63 @@ from django.core.exceptions import ValidationError
 from first_app.models import Employee, UserProfileInfo,Post
 from django.contrib.auth.models import User
 
+'''
+    Below two forms deal with the registration functionality.
+    1. User Form - Linked with the Django's default User model
+    2. UserProfileInfoForm - Linked with the model UserProfileInfo
+'''
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
 
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+        labels = {
+            'username': 'Choose UserName',
+            'email': 'Enter Your Mail',
+            'password': 'Enter Password',
+        }
+
+class UserProfileInfoForm(forms.ModelForm):
+    class Meta:
+        model = UserProfileInfo
+        fields = ['portfolio_site', 'profile_pic']
+
+#Posting Form
+class PostingForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['myTopic','post_title', 'myPost' ]
+        labels = {
+            'myTopic': 'Choose your topic',
+            'post_title': 'Your Post title',
+            'myPost': 'Post here',
+        }
+        widgets = {
+            'myTopic':forms.Select(attrs={'class': 'form-control'}),
+            #'myTopic': forms.TextInput(attrs={'class': 'form-control'}),
+            'post_title': forms.TextInput(attrs={'class': 'form-control'}),
+            'myPost': forms.Textarea(attrs={'cols': 85, 'rows': 10}),
+        }
+    def as_myp(self):
+        "Returns this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(label)s</p> <p>%(field)s%(help_text)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True)
+
+    def as_plain(self):
+        "Returns this form rendered as HTML <tr>s -- excluding the <table></table>."
+        return self._html_output(
+            normal_row='%(label)s%(errors)s%(field)s%(help_text)s',
+            error_row='%s',
+            row_ender=' ',
+            help_text_html='<br /><span class="helptext">%s</span>',
+            errors_on_separate_row=False)
+
+#Below are out of scope of this Project
 class MyReg_Form(forms.Form):
 
     def check_for_z(value):
@@ -37,25 +93,5 @@ class Employee_Login_From(forms.ModelForm):
         fields = ['Name', 'Organisation', 'Email']
 
 
-class PostingForm(forms.ModelForm):
-    class Meta:
-        model = Post
-        fields = ['myTopic','post_title', 'myPost' ]
-
-'''
-    Below two forms deal with the registration functionality.
-    1. User Form - Linked with the Django's default User model
-    2. UserProfileInfoForm - Linked with the model UserProfileInfo
-'''
-class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
-
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
 
 
-class UserProfileInfoForm(forms.ModelForm):
-    class Meta:
-        model = UserProfileInfo
-        fields = ['portfolio_site', 'profile_pic']

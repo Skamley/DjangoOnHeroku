@@ -32,7 +32,7 @@ print(STATIC_DIR)
 SECRET_KEY = 'w%gc$q%gn%@8lk*s0!+%g)$wv01=vh)i2&a)r_(u%w0u$7d7j3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['skamley-proj1.herokuapp.com', '127.0.0.1']
 
